@@ -207,3 +207,20 @@ But here is what you have to do:
 - Animate to the page you want using a custom Duration and a custom Curve
 - Call .dispose() on the PageController once the State gets disposed! 
 
+So we are facing one last problem: Updating the bottom navigation to indicate
+the correct page. Therefore a simple integer is introduced in the _MainPageState indicating which page is currently displayed. 
+
+```dart
+class _MainPageState extends State<MainPage> {
+
+  /// This controller can be used to programmatically
+  /// set the current displayed page
+  PageController _pageController;
+  
+  /// Indicating the current displayed page
+  /// 0: trends
+  /// 1: feed
+  /// 2: community
+  int _page = 0;
+```
+
