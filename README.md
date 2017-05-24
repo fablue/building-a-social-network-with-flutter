@@ -24,3 +24,10 @@ Since I am a great fan of Dart as a programming language, I found Flutter. And h
 ### Screenshot: Lime Flutter version
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-f-preview.png?raw=true" width="350">
 <br><br>
+
+
+## Step 1: Build the basic layout
+The first step is done by rebuilding the basic layout of Lime. We can obviously see that the App is contains 
+- A toolbar (which we will miss in this Article since i did not build it yet :smiley:
+- A ViewPager(Android)/PageView(Flutter) containg three Pages
+- A Navigationbar at the bottom of the App to provide a navigtion for the App. 
