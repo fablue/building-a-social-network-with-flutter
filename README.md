@@ -4,5 +4,6 @@ As of last year I had very fun building my own little social network called Lime
 
 ![](https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-preview.gif?raw=true)
 
-![](https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-preview.png?raw=true =250x)
-The 
+
+<img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-preview.png?raw=true" width="48">
+
