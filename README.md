@@ -269,7 +269,7 @@ new PageView(
 Thats all: Basic Layout is done. Everything looks like we want it to be. :sunglasses:
 Here is all we have so far:
 
-
+<br><br>
 #### Resume: Basic layout so far, so good :relaxed:
 ```dart
 import 'package:flutter/material.dart';
