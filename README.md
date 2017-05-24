@@ -123,7 +123,7 @@ class _MainPageState extends State<MainPage> {
           ),
           new BottomNavigationBarItem(
               icon: new Icon(Icons.people),
-              title: null
+              title: new Text("community")
           )
         ]
       )
