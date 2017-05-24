@@ -132,3 +132,7 @@ class _MainPageState extends State<MainPage> {
 }
 ```
 
+#### Screenshot: Building the bottom navigation
+<img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t2.png?raw=true" width="250">
+<br><br>
+
