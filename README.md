@@ -27,7 +27,7 @@ Since I am a great fan of Dart as a programming language, I found Flutter. And h
 
 
 ## Step 1: Build the basic layout
-The first step is done by rebuilding the basic layout of Lime. We can obviously see that the App is contains 
+The first step is done by rebuilding the basic layout of Lime. We can obviously see that the App consists of:
 - A toolbar (which we will miss in this Article since i did not build it yet :smiley:
 - A ViewPager(Android)/PageView(Flutter) containg three Pages
 - A Navigationbar at the bottom of the App to provide a navigtion for the App. 
