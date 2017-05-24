@@ -152,9 +152,7 @@ class _MainPageState extends State<MainPage> {
     return new Scaffold(
         body: new PageView(
           children: [
-            new Container(color: Colors.red),
-            new Container(color: Colors.blue),
-            new Container(color: Colors.grey)
+       	  ...
           ],
 
           /// Specify the page controller
@@ -162,18 +160,7 @@ class _MainPageState extends State<MainPage> {
         ),
       bottomNavigationBar: new BottomNavigationBar(
         items: [
-          new BottomNavigationBarItem(
-              icon: new Icon(Icons.add),
-              title: new Text("trends")
-          ),
-          new BottomNavigationBarItem(
-              icon: new Icon(Icons.location_on),
-              title: new Text("feed")
-          ),
-          new BottomNavigationBarItem(
-              icon: new Icon(Icons.people),
-              title: new Text("community")
-          )
+        ...
         ],
 
         /// Will be used to scroll to the next page
