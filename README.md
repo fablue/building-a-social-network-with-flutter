@@ -211,3 +211,12 @@ class _MainPageState extends State<MainPage> {
 }
 ```
 
+As you can easily see controlling the PageView is simple and fun! :yum: <br>
+But here is what you have to do:
+
+- Create a PageController inside the .initState()
+- Delegate the controller to the PageView as Param
+- Handle the onTap event of BottomNavigationBar
+- Animate to the page you want using a custom Duration and a custom Curve
+- Call .dispose() on the PageController once the State gets disposed! 
+
