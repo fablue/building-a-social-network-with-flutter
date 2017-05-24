@@ -31,3 +31,5 @@ The first step is done by rebuilding the basic layout of Lime. We can obviously 
 - A toolbar (which we will miss in this Article since i did not build it yet :smiley:
 - A ViewPager(Android)/PageView(Flutter) containg three Pages
 - A Navigationbar at the bottom of the App to provide a navigtion for the App. 
+
+Luckily Flutter provides a very useful skeleton for building this type of Layout: [Scaffold](https://docs.flutter.io/flutter/material/Scaffold-class.html)
