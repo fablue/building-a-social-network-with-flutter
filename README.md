@@ -275,9 +275,6 @@ Here is all we have so far:
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
-
-
 void main() {
   runApp(new LimeApp());
 }
@@ -387,6 +384,8 @@ class _MainPageState extends State<MainPage> {
 
 
 }
-
-
 ```
+
+#### GIF: Basic layout
+<img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t3.gif?raw=true" width="250">
+<br><br>
