@@ -37,3 +37,15 @@ Luckily Flutter provides a very useful skeleton for building this type of Layout
 
 But first things first: 
 Using [MaterialApp](https://docs.flutter.io/flutter/material/MaterialApp-class.html) should the root of our Application to provide the material design we all love :+1:
+
+
+```dart
+class LimeApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      title: 'Lime',
+      home: new MainPage(lime),
+    );
+  }
+```
