@@ -86,4 +86,10 @@ class _MainPageState extends State<MainPage> {
   }
 ```
 
+This is how your app should look like right know
+<br><br>
+#### Screenshot: Building the PageView
+<img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t1.gif?raw=true" width="250">
+<br><br>
+
 
