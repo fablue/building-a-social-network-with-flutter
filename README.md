@@ -224,3 +224,17 @@ class _MainPageState extends State<MainPage> {
   int _page = 0;
 ```
 
+To implement this information in the view we have to simply update the BottomNavigationBar as the following
+
+```dart
+      bottomNavigationBar: new BottomNavigationBar(
+        items: [
+   	...
+        ],
+
+        /// Will be used to scroll to the next page
+        /// using the _pageController
+        onTap: navigationTapped,
+        currentIndex: _page
+```
+
