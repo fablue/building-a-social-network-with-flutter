@@ -136,3 +136,7 @@ class _MainPageState extends State<MainPage> {
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t2.png?raw=true" width="250">
 <br><br>
 
+That was extremly simple, wasnt it? :relaxed: 
+But now we have to provide some controlling for the navigation :cold_sweat: <br>
+
+
