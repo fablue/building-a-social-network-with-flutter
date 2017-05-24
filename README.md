@@ -236,5 +236,6 @@ To implement this information in the view we have to simply update the BottomNav
         /// using the _pageController
         onTap: navigationTapped,
         currentIndex: _page
+      )
 ```
 
