@@ -11,3 +11,6 @@ But the App had one big problem: I didnt develop an iOS Version! So because I do
 Since I am a great fan of Dart as a programming language, I found Flutter. And hell: I remember seeing the first code example of a layout and immediatelly leaving the website shaking my head. So I visited all the other well known Frameworks like Xamarin, ReactNative or NativeScript and those are all great Frameworks but nothing could catch me entirly. So I cloned Flutter, gave it a chance by reading the docs and tried building my first layouts. The reason: I like Dart and I like IntelliJ and I love the idea that Flutter runs inside a VM and draws everything by its own. Since then I needed 10 hours of work (reading the docs included) to built the following and here is how I did it. 
 
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-f-preview.gif?raw=true" width="350">
+
+
+<img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-f-preview.png?raw=true" width="350">
