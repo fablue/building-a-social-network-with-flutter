@@ -25,6 +25,7 @@ Since I am a great fan of Dart as a programming language, I found Flutter. And h
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-f-preview.png?raw=true" width="350">
 <br><br>
 
+Disclaimer: I assume, that you already know how to setup Flutter and that you have a very basic understanding of how the Framework works. There is a lot of great stuff to read for you at https://flutter.io :heart:
 
 ## Step 1: Build the basic layout
 The first step is done by rebuilding the basic layout of Lime. We can obviously see that the App consists of:
