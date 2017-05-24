@@ -6,6 +6,7 @@ As of last year I had very fun building my own little social network called Lime
 ### GIF: Lime native Android App
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-preview.gif?raw=true" width="350">
 
+<br><br><p><p>
 ### Screenshot: Lime native Android App
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-preview.png?raw=true" width="350">
 
