@@ -65,7 +65,7 @@ class MainPage extends StatefulWidget {
 
 So now we should talk about the _MainPageState. As written somewhere above: Please make sure to know what Widgets and their States are and how to basically build layouts using Flutter!
 
-### Creating a PageView with three children
+### 1.1 Creating a PageView with three children
 Since we know that we need to have 3 pages: "trends", "feed" and "community" inside our app we will implement those pages later, but we will implment the Scaffold supporting those pages. 
 We will place color placeholders inside them.
 
@@ -92,4 +92,43 @@ This is how your app should look like right know
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t1.gif?raw=true" width="250">
 <br><br>
 
+
+### 1.2 Creating the bottom navigation
+Creating the bottom navigation is amazingly simple using the Scaffold :flushed:
+All we have to do is provide a [BottomNavigationBar](https://docs.flutter.io/flutter/material/BottomNavigationBar-class.html). Because there is no flame/fire icon in the standard icon set are we using something else for now. Dont worry getting different icons is pretty simple, but wont be covered in this article. 
+
+Here is how it looks like:
+
+```dart
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        body: new PageView(
+          children: [
+            new Container(color: Colors.red),
+            new Container(color: Colors.blue),
+            new Container(color: Colors.grey)
+          ]
+        ),
+      bottomNavigationBar: new BottomNavigationBar(
+        items: [
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.add),
+              title: new Text("trends")
+          ),
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.location_on),
+              title: new Text("feed")
+          ),
+          new BottomNavigationBarItem(
+              icon: new Icon(Icons.people),
+              title: null
+          )
+        ]
+      )
+    );
+  }
+}
+```
 
