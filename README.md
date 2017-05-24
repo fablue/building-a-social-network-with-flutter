@@ -61,6 +61,29 @@ class MainPage extends StatefulWidget {
     return new _MainPageState();
   }
 }
-
 ``` 
+
+So now we should talk about the _MainPageState. As written somewhere above: Please make sure to know what Widgets and their States are and how to basically build layouts using Flutter!
+
+### Creating a PageView with three children
+Since we know that we need to have 3 pages: "trends", "feed" and "community" inside our app we will implement those pages later, but we will implment the Scaffold supporting those pages. 
+We will place color placeholders inside them.
+
+
+```dart
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+        body: new PageView(
+          children: [
+            new Container(color: Colors.red),
+            new Container(color: Colors.blue),
+            new Container(color: Colors.grey)
+          ]
+        )
+    );
+  }
+```
+
 
