@@ -45,7 +45,22 @@ class LimeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Lime',
-      home: new MainPage(lime),
+      home: new MainPage(),
     );
   }
 ```
+
+LimeApp will be the root of our Application which we wont touch so far. So lets have a look how we should build our MainPage to look and feel like we want it to have. 
+
+Since we have to do some controlling inside the MainPage we will declare it as [StatefulWidget](https://docs.flutter.io/flutter/widgets/StatefulWidget-class.html)
+
+```dart
+class MainPage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new _MainPageState();
+  }
+}
+
+``` 
+
