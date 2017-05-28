@@ -446,3 +446,69 @@ class _MainPageState extends State<MainPage> {
 
 
 ## Step 2: Build a list which supports pagination for data loading
+Any of Lime's three pages (trends, feed and community) is displaying a almost endless scrolling list.
+The plan is to build one basic layout which handles data loading, pagination and refresh for us.
+It should use a generic interface or function to load specific data and one to adapt a Widget from given loaded data.
+
+Here is how it looks like:
+```dart
+typedef Future<List<T>> PageRequest<T> (int page, int pageSize);
+typedef Widget WidgetAdapter<T>(T t);
+```
+
+### PageRequest
+A given PageRequest takes page and pageSize as arguments, while page represents the page index (0 first page, 1 second Page, ...) and
+pageSize the exact count of items to load, and returns a List of generic items asynchronously.
+
+### WidgetAdapter
+Once our LoadingListView (that is how I called it) successfully loaded items using some kind of PageRequest, the WidgetAdapter is used to
+build Widgets from a generic item if needed.
+
+Providing implementations of those two type definitions to our LoadingListView will give us the freedom to reuse the LoadingListView
+for almost anything needed in Lime  :heavy_check_mark:
+
+So lets build it! :bangbang:
+The LoadingListView should be pretty straight forward.
+
+```dart
+
+class LoadingListView<T> extends StatefulWidget {
+
+  /// Abstraction for loading the data.
+  /// This can be anything: An API-Call,
+  /// loading data from a certain file or database,
+  /// etc. It will deliver a list of objects (of type T)
+  final PageRequest<T> pageRequest;
+
+  /// Used for building Widgets out of
+  /// the fetched data
+  final WidgetAdapter<T> widgetAdapter;
+
+  /// The number of elements requested for each page
+  final int pageSize;
+
+  /// The number of "left over" elements in list which
+  /// will trigger loading the next page
+  final int pageThreshold;
+
+  /// [PageView.reverse]
+  final bool reverse;
+
+
+
+  final Indexer<T> indexer;
+
+  LoadingListView(this.pageRequest, {
+    this.pageSize: 50,
+    this.pageThreshold:10,
+    @required this.widgetAdapter,
+    this.reverse: false,
+    this.indexer
+  });
+
+  @override
+  State<StatefulWidget> createState() {
+    return new _LoadingListViewState();
+  }
+}
+```
