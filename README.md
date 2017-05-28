@@ -611,3 +611,35 @@ entire method when this.request ist NOT NULL
 - Step 2: Indicate that a request is currently running by
 assigning the Future returned by .loadNext() to request
 - Step 3: Make sure to un-reference once the request has finished.
+
+##### Initial loading and pagination
+Since we now have built the data loading logic, we need to call it!
+
+###### Initial loading
+We will use .initState to perform trigger data loading for the first time:
+
+```dart
+  @override
+  void initState() {
+    super.initState();
+    this.lockedLoadNext();
+  }
+```
+
+But how can we now when we have trigger loading the next page?
+One way, which worked for me, is abusing the itemBuilder introduced earlier, since we
+know that it will build Widgets for a certain index in the list.
+
+```dart
+  Widget itemBuilder(BuildContext context, int index) {
+
+    /// here we go: Once we are entering the threshold zone, the loadLockedNext()
+    /// is triggered.
+    if (index + widget.pageThreshold > objects.length) {
+      loadLockedNext();
+    }
+
+    return widget.widgetAdapter != null ? widget.widgetAdapter(objects[index])
+        : new Container();
+  }
+```
