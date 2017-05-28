@@ -1,8 +1,8 @@
 # How I built a social network like Instagram in a few lines of code using flutter and why I fell in love with it
 ## What I wanted to build and why I tried Flutter
 As of last year I had very fun building my own little social network called Lime. So far you can post images and text messages  to Lime,
- give posts a "Like" and comment/chat on them. The clue: All messages are tightly bound to the location it was posted.
- So you are only able to see posts which have been posted in a maximum radius of 30km. Here is what it looks like:
+ give posts a "Like" and comment/chat on them. The clue: All messages are tightly bound to the location where it was posted.
+ That means you are only able to see posts which have been created in a maximum radius of 30km. Here is what it currently looks like:
 
 <br><br>
 ### GIF: Lime native Android App
@@ -15,23 +15,22 @@ As of last year I had very fun building my own little social network called Lime
 <br><br>
 
 But the App had one big problem: I didn't develop an iOS Version(so far)!
-So because I do not own an Apple Computer nor do I own an iPhone I decided to look around for any cool
- Framework which would allow me to develop an App for both platforms. This way I would be able to build
- and debug it on my linux machine and my Android smartphone, which sounded great to me.
+So because I do not own an Apple Computer nor do I own an iPhone I decided to look for any cool
+ Framework which would allow me to develop Lime for both platforms. This way I would be able to build
+ and debug it on my linux machine and my Android smartphone, which sounded great to me :relaxed:.
 Since I am a great fan of Dart as a programming language, I found Flutter. And hell: I remember seeing the first code
-example of a layout and immediately leaving the website shaking my head. So I visited all the other well known Frameworks
+example of a layout and immediately leaving the website shaking my head. I visited all the other, well known, Frameworks
 like Xamarin, ReactNative or NativeScript and those are all great Frameworks but nothing could catch me entirely.
-So I cloned Flutter, gave it a chance by reading the docs and tried building my first layouts and quickly fell in love with it :heart:
-So why did I choose trying Flutter instead of any other Framework when the code scared me the first time I saw it?
+At the end I cloned Flutter, gave it a chance by reading the docs and tried building my first layouts and quickly fell in love with it :heart:
+But why did I try Flutter when my first impression wasn't that great at all?
 
-Well there are many reason:
+Well there are many reasons:
 - First of all I like Dart and I prefer it MUCH over javascript since I am most used to writing Java code
-- Secondly IntelliJ is my IDE of choice
+- Secondly IntelliJ is my IDE of choice  :heart:
 - And the Game-Changer (for me): Flutter runs inside a VM and draws everything itself.
 This should bring performance and a whole lot of possibilities to the framework. And yep: I was right!
 
-Since I started building Lime with Flutter it took me around 10 hours of work (reading the docs included) to built the following
-App and here is how its done.
+Since I started building Lime with Flutter it took me around 10 hours of work (reading the docs included) to built the following and here is how its done.
 <br><br>
 ### GIF: Lime Flutter version
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/lime-f-preview.gif?raw=true" width="350">
@@ -49,7 +48,7 @@ Disclaimer: I assume, that you already know how to setup Flutter and that you ha
 We will rebuild the basic layout of lime including the ViewPager and the bottom navigation.
 
 ### Step 2: Build a list which supports pagination for data loading
-Since Lime includes multiple list large data-sets should we implement a way to handle
+Since Lime includes multiple lists, displaying large data-sets, should we implement a way to handle
 the data loading and pagination logic in a somewhat elegant way. I will show how I did it. You
 can judge it if you want :relaxed:
 
@@ -62,7 +61,7 @@ We want the images to fade after loading. I will show how you can use Flutters m
 widgets to build such a behaviour in very few lines of code
 
 ### Step 5: Integrate first interaction: Make a post "likeable" and animate the action.
-Once a user hits the little ghost the post is liked. I will show you can tell the server,
+Once a user hits the little ghost the post is liked. I will show how to execute a simple REST-API call,
 and how to animate the state change. We will learn about callbacks to handle state changes of
 parent widgets.
 
@@ -111,14 +110,13 @@ class MainPage extends StatefulWidget {
 }
 ``` 
 
-So now we should talk about the _MainPageState. As written somewhere above:
+Now we should talk about the _MainPageState. As written somewhere above:
 Please make sure to know what Widgets and their States are and how to basically build layouts using Flutter!
 
 ### 1.1 Creating a PageView with three children
-Since we know that we need to have 3 pages: "trends", "feed" and "community" inside our app we will
-implement those widgets later, but we will implement the Scaffold.
-We will place color placeholders inside them.
-
+The App has to display three different pages to the user: trends, feed and community.
+We will use a [PageView](https://docs.flutter.io/flutter/widgets/PageView-class.html) and place
+some Placeholders inside it for now.
 
 ```dart
 class _MainPageState extends State<MainPage> {
@@ -138,7 +136,7 @@ class _MainPageState extends State<MainPage> {
 ```
 We can replace the simple colored containers later with our more sophisticated widgets.
 
-This is how your app should look like right know.
+This is how the App should look like right know.
 <br><br>
 #### Screenshot: Building the PageView
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t1.gif?raw=true" width="250">
@@ -445,3 +443,6 @@ class _MainPageState extends State<MainPage> {
 #### GIF: Basic layout
 <img src="https://github.com/fablue/building-a-social-network-with-flutter/blob/master/t3.gif?raw=true" width="250">
 <br><br>
+
+
+## Step 2: Build a list which supports pagination for data loading
