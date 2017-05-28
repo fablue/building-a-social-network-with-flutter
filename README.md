@@ -467,7 +467,7 @@ build Widgets from a generic item if needed.
 Providing implementations of those two type definitions to our LoadingListView will give us the freedom to reuse the LoadingListView
 for almost anything needed in Lime  :heavy_check_mark:
 
-So lets build it! :bangbang:
+### So lets build it! :bangbang:
 The LoadingListView should be pretty straight forward.
 
 ```dart
@@ -512,3 +512,102 @@ class LoadingListView<T> extends StatefulWidget {
   }
 }
 ```
+
+But we know: Its all about the State!
+Obviously we need to hold some kind of reference to the fetched objects and we are going
+to display them using the standard [ListView](https://docs.flutter.io/flutter/widgets/ListView-class.html)
+
+```dart
+class _LoadingListViewState<T> extends State<LoadingListView<T>> {
+
+  /// Contains all fetched elements ready to display!
+  List<T> objects = [];
+
+  @override
+  Widget build(BuildContext context) {
+    ListView listView = new ListView.builder(
+        itemBuilder: itemBuilder,
+        itemCount: objects.length,
+        reverse: widget.reverse
+    );
+
+    return listView;
+  }
+}
+```
+
+Looks pretty nice so far, but how does itemBuilder look like and what does it do?
+
+```dart
+  Widget itemBuilder(BuildContext context, int index) {
+    return widget.widgetAdapter != null ? widget.widgetAdapter(objects[index])
+        : new Container();
+  }
+```
+
+It basically builds the widgets from the fetched data! And i know: The null-check is unnecessary, who cares!
+
+
+#### Loading data
+I will now introduce two methods for the data-loading logic
+- loadNext()
+- lockedLoadNext()
+and you will see why i chose using two methods.
+
+##### loadNext()
+
+```dart
+Future loadNext() async {
+    int page = (objects.length / widget.pageSize).floor();
+    List<T> fetched = await widget.pageRequest(page, widget.pageSize);
+
+    if(mounted) {
+      this.setState(() {
+        objects.addAll(fetched);
+      });
+    }
+  }
+```
+
+What happens there step by step?
+- Step 1: figure out which page index should be loaded next
+- Step 2: use the PageRequest provided by the Widget to load the data
+- Step 3: add the fetched objects to the list and use .setState to notify the underlying ListView
+
+##### lockedLoadNext()
+So what do I need a second method for?
+
+Calling the async method loadNext() will immediately return a Future object which runs the IO-Operation in the
+ Background. We will have to introduce some kind of locking mechanism to prevent multiple requests running at the same time!
+
+ I decided to use the Future object returned by loadNext() as an indicator of any running background request.
+
+```dart
+class _LoadingListViewStateO<T> extends State<LoadingListView<T>> {
+  List<T> objects = [];
+
+  /// A Future returned by loadNext() if there
+  /// is currently a request running
+  /// or null, if no request is performed.
+  Future request;
+```
+
+And here the lockedLoadNext() which
+will take care of the newly introduced "request" reference
+
+```dart
+ void lockedLoadNext() {
+    if (this.request == null) {
+      this.request = loadNext().then((x) {
+        this.request = null;
+      });
+    }
+  }
+```
+
+Again - step by step:
+- Step 1: Check if there is any request currently running? Skip the
+entire method when this.request ist NOT NULL
+- Step 2: Indicate that a request is currently running by
+assigning the Future returned by .loadNext() to request
+- Step 3: Make sure to un-reference once the request has finished.
