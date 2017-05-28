@@ -626,6 +626,8 @@ We will use .initState to perform trigger data loading for the first time:
   }
 ```
 
+
+###### Pagination
 But how can we now when we have trigger loading the next page?
 One way, which worked for me, is abusing the itemBuilder introduced earlier, since we
 know that it will build Widgets for a certain index in the list.
@@ -643,3 +645,45 @@ know that it will build Widgets for a certain index in the list.
         : new Container();
   }
 ```
+
+##### Implement a refresh mechanism
+Data might change. We want to build some kind of swipe to refresh mechanism refetching the first page!
+Using flutters [RefreshIndicator](https://docs.flutter.io/flutter/material/RefreshIndicator-class.html) makes
+this task incredibly easy! :heart:
+
+Just pass the ListView as child to the RefreshIndicator inside the build method:
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    ListView listView = new ListView.builder(
+        itemBuilder: itemBuilder,
+        itemCount: objects.length,
+        reverse: widget.reverse
+    );
+
+    return new RefreshIndicator(
+        onRefresh: onRefresh,
+        child: listView
+    );
+  }
+```
+
+Last thing to do: Implement onRefresh
+
+```dart
+  Future onRefresh() async {
+    this.request?.timeout(const Duration());
+    List<T> fetched = await widget.pageRequest(0, widget.pageSize);
+    setState(() {
+     this.objects = fetched;
+    });
+
+    return true;
+  }
+```
+
+Step by step:
+- Step 1: Cancel any currently running request
+- Step 2: Use pageRequest directly to fetch the first page
+- Step 3: Set and display the fetched data
