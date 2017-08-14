@@ -548,6 +548,11 @@ Looks pretty nice so far, but how does itemBuilder look like and what does it do
 
 It basically builds the widgets from the fetched data! And i know: The null-check is unnecessary, who cares!
 
+Don't forget to add your imports!
+
+```dart
+import 'dart:async';
+```
 
 #### Loading data
 I will now introduce two methods for the data-loading logic
