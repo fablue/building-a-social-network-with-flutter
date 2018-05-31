@@ -1,5 +1,8 @@
 # How I built a social network like Instagram in a few lines of code using flutter and why I fell in love with it
-In advance: Feel free to ask me any kind of flutter related questions! Just open an issue :relaxed:
+ 
+ ** This project tutorial is OUT OF DATE. It was created with a very early version of flutter and I am not able to maintain it **
+
+
 ## What I wanted to build and why I tried Flutter
 As of last year I had very fun building my own little social network called Lime. So far you can post images and text messages  to Lime,
  give posts a "Like" and comment/chat on them. The clue: All messages are tightly bound to the location where it was posted.
